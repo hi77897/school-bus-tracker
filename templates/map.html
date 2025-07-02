@@ -5,15 +5,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Leaflet 样式 -->
+  <!-- Leaflet 样式（已去掉 integrity） -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-XQoYMqMTK8LvdlxU3APdTfGZtP8pHgRi9M2z+3hU9GA="
-    crossorigin=""
   />
 
-  <!-- 关键：确保地图容器有高度 -->
+  <!-- 保证地图容器有高度 -->
   <style>
     html, body {
       height: 100%;
@@ -21,7 +19,7 @@
       padding: 0;
     }
     #map {
-      height: 100vh; /* 保证整个视口高度 */
+      height: 100vh;
       width: 100%;
     }
   </style>
@@ -29,11 +27,9 @@
 <body>
   <div id="map"></div>
 
-  <!-- Leaflet JS -->
+  <!-- Leaflet JS（已去掉 integrity） -->
   <script
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-pM0i6iFoA++Z7xVZ4Q8DUKPcH5Q2a0uNlLs+CCHq0+M="
-    crossorigin=""
   ></script>
 
   <script>
