@@ -4,28 +4,37 @@
   <title>School Bus Tracker</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-sA+e2sx0dZKPj7Z+IA6flAoVrgiXGkMZo06v+gZQ3wY="
-    crossorigin=""/>
-  
+
+  <!-- Leaflet 样式 -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-XQoYMqMTK8LvdlxU3APdTfGZtP8pHgRi9M2z+3hU9GA="
+    crossorigin=""
+  />
+
+  <!-- 关键：确保地图容器有高度 -->
   <style>
-    html, body, #map {
+    html, body {
       height: 100%;
       margin: 0;
       padding: 0;
     }
+    #map {
+      width: 100%;
+      height: 100%;
+    }
   </style>
 </head>
 <body>
-
   <div id="map"></div>
 
   <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-pM0I6iFCoA+Z7xVZ4Q8DUKPcH5Q2a0uNlLs+CCH+q0="
-    crossorigin=""></script>
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-pM0i6iFoA++Z7xVZ4Q8DUKPcH5Q2a0uNlLs+CCHq0+M="
+    crossorigin=""
+  ></script>
 
   <script>
     const map = L.map('map').setView([3.0602, 101.5842], 14);
@@ -41,14 +50,16 @@
     const school = L.marker([3.0705, 101.6002]).addTo(map)
       .bindPopup("学校");
 
-    const route = L.polyline([
-      [3.0602, 101.5842],
-      [3.0705, 101.6002]
-    ], {
-      color: 'red',
-      weight: 4
-    }).addTo(map);
+    const route = L.polyline(
+      [
+        [3.0602, 101.5842],
+        [3.0705, 101.6002]
+      ],
+      {
+        color: 'red',
+        weight: 4
+      }
+    ).addTo(map);
   </script>
-
 </body>
 </html>
