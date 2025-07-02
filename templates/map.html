@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>School Bus Tracker (Simulated)</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>html, body, #map {{ height: 100%; margin: 0; padding: 0; }}</style>
+  <title>School Bus Tracker</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-sA+z0ymB+YYz1MWuFLndHgDGi44zp1hNwl5MYYx8oRM="
+    crossorigin=""
+  />
+  <style>
+    #map {
+      height: 100vh;
+    }
+  </style>
 </head>
 <body>
-    <div id="map"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=geometry"></script>
-    <script src="/static/script.js"></script>
+  <div id="map"></div>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-pM0I6iFcOa++Z7xVZ4Q8DUKPcH5Q2a0uN1Ls+CCH+q0="
+    crossorigin="">
+  </script>
+
+  <script>
+    const map = L.map('map').setView([3.0602, 101.5842], 14);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const aeonBig = L.marker([3.0602, 101.5842]).addTo(map).bindPopup("起点").openPopup();
+    const school = L.marker([3.0705, 101.6002]).addTo(map).bindPopup("学校");
+
+    const route = L.polyline([
+      [3.0602, 101.5842],
+      [3.0705, 101.6002]
+    ], {
+      color: 'red',
+      weight: 4
+    }).addTo(map);
+  </script>
 </body>
 </html>
